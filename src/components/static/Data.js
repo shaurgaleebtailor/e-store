@@ -1,0 +1,1 @@
+export const availableCategories = [ "Electronics","Jewellery","Mens Clothing","Womens Clothing"]
