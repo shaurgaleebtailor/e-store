@@ -1,0 +1,119 @@
+// by default targetting styles in MOW verion
+.hero-carousel {
+  margin: 4%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(1, 47, 50);
+  height: 28rem;
+  #carousel-heading {
+    margin: 10px;
+    text-align: center;
+    padding: 4px 6px 4px;
+    color: burlywood;
+    animation: headShadow 2.5s ease-in-out infinite;
+  }
+  #img-div {
+    margin: 10px 0px 5px;
+    min-height: 16rem;
+    min-width: 15.5rem;
+  }
+  img {
+    width: 15.5rem;
+    height: 15rem;
+  }
+  p {
+    text-align: justify;
+    margin: 2px;
+    padding: 2px 3px;
+    font-weight: 100;
+    color: azure;
+    min-height: 60px;
+  }
+  #btn {
+    display: flex;
+    align-self: self-end;
+    min-height: 20px;
+    padding: 3px 5px 3px;
+    margin: 3px 5px 5px;
+    font-size: 18px;
+    border: 1px solid grey;
+    border-radius: 2px;
+    &:active {
+      background-color: green;
+      color: aliceblue;
+    }
+  }
+  @keyframes headShadow {
+    0% {
+      color: burlywood;
+    }
+    25% {
+      color: rgb(81, 47, 2);
+    }
+    75% {
+      color: rgb(223, 131, 10);
+    }
+    100% {
+      color: burlywood;
+    }
+  }
+}
+// for desktop
+.hero-carousel-desktop {
+  margin: 2% 12.5% 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(1, 47, 50);
+  height: 35rem;
+
+  width: 75%;
+  #carousel-heading {
+    margin: 10px 10px 14px;
+    font-size: 40px;
+    text-align: center;
+    padding: 4px 6px 4px;
+    color: burlywood;
+    animation: headShadow 2.5s ease-in-out infinite;
+  }
+  #img-div {
+    margin: 10px 0px 15px;
+    min-height: 23rem;
+    min-width: 30rem;
+  }
+  img {
+    width: 30rem;
+    height: 23rem;
+  }
+  p {
+    text-align: justify;
+    margin: 2px;
+    font-size: 24px;
+    padding: 2px 3px;
+    font-weight: 100;
+    color: azure;
+    min-height: 40px;
+  }
+  #btn {
+    display: flex;
+    align-self: self-end;
+    // margin-left: -20px;
+    min-height: 30px;
+    padding: 3px 10px 3px;
+    margin: 3px 30px 30px 0px;
+    font-size: 18px;
+    border: 1px solid grey;
+    border-radius: 2px;
+    &:hover {
+      cursor: pointer;
+      background-color: green;
+      color: aliceblue;
+    }
+    &:active {
+      transform: scale(1.05);
+    }
+  }
+}
