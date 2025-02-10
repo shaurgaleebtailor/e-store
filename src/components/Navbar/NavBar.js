@@ -14,7 +14,7 @@ const NavBar = () => {
     if (!isMobile && displayDrawer) {
       setDisplayDrawer(false);
     }
-  }, [isMobile]);
+  }, [isMobile,displayDrawer]);
   const MowNav = () => {
     const openDrawerHandler = () => {
       setDisplayDrawer(true);
