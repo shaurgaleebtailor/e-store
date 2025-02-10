@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { useMOWChecker } from "../utilities/useMOWChecker";
+import { avoidBackgroundScrolling } from "../utilities/utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart, faBars } from "@fortawesome/free-solid-svg-icons";
 import { availableCategories } from "../static/Data";
@@ -32,6 +33,8 @@ const NavBar = () => {
     const closeDrawerHandler = () => {
       setDisplayDrawer(false);
     };
+    // avoiding background scrolling when displayDrawer is true(dialog is in open state)
+    avoidBackgroundScrolling(isMobile,displayDrawer);
     return (
       <div>
         {displayDrawer && (
