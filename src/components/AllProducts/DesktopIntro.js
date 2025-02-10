@@ -31,13 +31,13 @@ const DesktopIntro = ({ productData }) => {
         </article>
         <section className="right-part">
           {isVisible && (
-            <>
+            <div className="intro-animation">
               <h2>
                 <i>{title} </i>
               </h2>
               <p>{description}</p>
               <a href="./ok.html">{linkTitle}</a>
-            </>
+            </div>
           )}
         </section>
       </div>
@@ -45,13 +45,13 @@ const DesktopIntro = ({ productData }) => {
       <div className="products-intro-container ">
         <section className="right-part reverse">
           {isVisible && (
-            <>
+            <div className="intro-animation">
               <h2>
                 <i>{title} </i>
               </h2>
               <p>{description}</p>
               <a href="./some-dummy-html-for-time-being.html">{linkTitle}</a>
-            </>
+            </div>
           )}
         </section>
         <article className="left-part reverse">
