@@ -59,7 +59,7 @@ const NavBar = () => {
           <img src={Logo} alt="store logo" />
         </li>
         {availableCategories.map((itm, index) => (
-          <li key={index}>{itm}</li>
+          <li key={index} className="nav-links">{itm}</li>
         ))}
       </ul>
     );
@@ -69,7 +69,7 @@ const NavBar = () => {
     document.getElementById("drawer-mow")
   );
   return (
-    <div>
+    <>
       <nav className="navbar">
         {isMobile ? <MowNav /> : <DesktopNav />}
         <section className="cart">
@@ -78,7 +78,7 @@ const NavBar = () => {
         </section>
       </nav>
       {isMobile && navmowdrawerPortal}
-    </div>
+    </>
   );
 };
 export default NavBar;
