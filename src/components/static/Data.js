@@ -100,3 +100,36 @@ export const allProductsIntro = [
     linkTitle: "See Details",
   },
 ];
+
+export const storeFeaturesList = [
+  {
+    featureName: "Diverse Collection",
+    featureDescription:
+      "Explore a wide range of electronics, fashion, and accessories.",
+  },
+  {
+    featureName: "Quality Assurance",
+    featureDescription:
+      "Handpicked products from trusted brands and suppliers.",
+  },
+  {
+    featureName: "Secure Payments",
+    featureDescription: "Multiple payment options with encrypted transactions.",
+  },
+  {
+    featureName: "Fast & Reliable Shipping",
+    featureDescription: "Get your orders delivered quickly and safely.",
+  },
+  {
+    featureName: "Easy Returns & Exchanges",
+    featureDescription: "Hassle-free return and refund policies.",
+  },
+  {
+    featureName: "24/7 Customer Support",
+    featureDescription: "Dedicated assistance whenever you need help.",
+  },
+  {
+    featureName: "Exclusive Deals & Discounts",
+    featureDescription: "Enjoy special offers and seasonal sales.",
+  },
+];
