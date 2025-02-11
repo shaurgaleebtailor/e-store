@@ -53,3 +53,24 @@
     }
   }
 }
+
+@media (min-width:376px) and 
+(max-width:767px) {
+  .custom-swiper{
+    .slide-container{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      h1{
+        margin-left: 0;
+      }
+      .slide-info{
+        margin-left: 20%;
+      }
+    }
+     .swiper-pagination {
+      bottom: 12px;
+    }
+  }
+}
