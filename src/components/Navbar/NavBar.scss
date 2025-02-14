@@ -6,6 +6,10 @@
   align-items: center;
   background-color: aquamarine;
   font-size: 20px;
+  // sticky navbar behaviour
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 .nav-items-mow {
   display: flex;
@@ -26,11 +30,10 @@
 
 .drawer {
   position: absolute;
-  top: 0px;
   background-color: rgba(0, 10, 7, 0.97);
   width: 100%;
   height: 100%;
-  z-index: 5;
+  z-index: 11;
 
   #drawer-cncl-btn {
     padding: 3px 6px 3px;
@@ -58,11 +61,17 @@
       margin: 2px 3px 2px;
       color: aliceblue;
       font-size: 20px;
-      &:hover{
+      &:active{
         color: azure;
         background-color: rgb(1, 61, 63);
         border-radius: 10px;
       }
+    }
+    // when width > height
+    @media (orientation:"landscape") {
+        height: 60%;
+        margin: 5% auto;
+        width: 50%;
     }
   }
 }

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { useMOWChecker } from "../utilities/useMOWChecker";
 import { avoidBackgroundScrolling } from "../utilities/utils";
@@ -11,6 +11,7 @@ import Logo from "../../assets/logo.png";
 const NavBar = () => {
   const isMobile = useMOWChecker();
   const [displayDrawer, setDisplayDrawer] = useState(false);
+  const scrlY_fromHTML = useRef();
   useEffect(() => {
     if (!isMobile && displayDrawer) {
       setDisplayDrawer(false);
@@ -19,6 +20,7 @@ const NavBar = () => {
   const MowNav = () => {
     const openDrawerHandler = () => {
       setDisplayDrawer(true);
+      scrlY_fromHTML.current = document.documentElement.scrollTop;
     };
     return (
       <ul className="nav-items-mow">
@@ -38,7 +40,7 @@ const NavBar = () => {
     return (
       <div>
         {displayDrawer && (
-          <div className="drawer">
+          <div className="drawer" style = {{ top : `${scrlY_fromHTML.current}px`}}>
             <button onClick={closeDrawerHandler} id="drawer-cncl-btn">
               X
             </button>
