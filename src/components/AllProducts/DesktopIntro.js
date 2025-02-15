@@ -7,11 +7,11 @@ const DesktopIntro = ({ productData }) => {
   useEffect(() => {
     let intrsecObsr = new IntersectionObserver(
       (entry) => {
-        if (entry[0].intersectionRatio >= 0.75) {
+        if (entry[0].intersectionRatio >= 0.50) {
             SetIsVisible(true);
         }
       },
-      { threshold: 0.75 }
+      { threshold: 0.50 }
     );
     if (imgRef.current) {
       intrsecObsr.observe(imgRef.current);

@@ -3,7 +3,7 @@ import womensintro from "../../assets/intro/womens-intro.jpg";
 import electronicsintro from "../../assets/intro/electronics-intro.jpg";
 import jewelleryintro from "../../assets/intro/jewellery-intro-1.jpg";
 import heromens from "../../assets/hero-mens.webp";
-import herojewellery from "../../assets/hero-jewellery.jpg";
+import herojewellery from "../../assets/hero-jewellery-2.jpg";
 import heroelectronics from "../../assets/hero-electronics.jpg";
 import herowomens from "../../assets/hero-womens.jpg";
 
@@ -17,7 +17,7 @@ export const availableCategories = [
 export const heroCarouselData = [
   {
     id: 2,
-    title: "Mens Top Notch latest outfits in T-Shirts, Suits, Hoodies ",
+    title: "Mens Top Notch Latest Outfits in T-Shirts, Suits, Hoodies & More",
     price: 22.3,
     description:
       "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
@@ -30,10 +30,10 @@ export const heroCarouselData = [
   },
   {
     id: 17,
-    title: "Womens new Era of shopping begins with these outfits",
+    title: "Womens New Era of Shopping Begins with These Trendy Outfits",
     price: 39.99,
     description:
-      "Lightweight perfet for trip or casual wear---Long sleeve with hooded, adjustable drawstring waist design. Button and zipper front closure raincoat, fully stripes Lined and The Raincoat has 2 side pockets are a good size to hold all kinds of things, it covers the hips, and the hood is generous but doesn't overdo it.Attached Cotton Lined Hood with Adjustable Drawstrings give it a real styled look.",
+      "Lightweight perfet for trip or casual wear---Long sleeve with hooded, adjustable drawstring waist design. Button and zipper front closure raincoat, fully stripes Lined and The Raincoat has 2 side pockets are a good size to hold all kinds of things, it covers the hips, and the hood is generous but doesn't overdo it. Attached Cotton Lined Hood with Adjustable Drawstrings give it a real styled look.",
     category: "women's clothing",
     image: herowomens,
     rating: {
@@ -44,10 +44,10 @@ export const heroCarouselData = [
   {
     id: 14,
     title:
-      "Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED ",
+      "Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor - Ultra-Wide, High Performance",
     price: 999.99,
     description:
-      "49 INCH SUPER ULTRAWIDE 32:9 CURVED GAMING MONITOR with dual 27 inch screen side by side QUANTUM DOT (QLED) TECHNOLOGY, HDR support and factory calibration provides stunningly realistic and accurate color and contrast 144HZ HIGH REFRESH RATE and 1ms ultra fast response time work to eliminate motion blur, ghosting, and reduce input lag",
+      "49 INCH SUPER ULTRAWIDE 32:9 CURVED GAMING MONITOR with dual 27 inch screen side by side QUANTUM DOT (QLED) TECHNOLOGY, HDR support and factory calibration provides stunningly realistic and accurate color and contrast 144HZ HIGH REFRESH RATE and 1ms ultra fast response time work to eliminate motion blur, ghosting, and reduce input lag.",
     category: "electronics",
     image: heroelectronics,
     rating: {
@@ -57,10 +57,11 @@ export const heroCarouselData = [
   },
   {
     id: 6,
-    title: "Solid Gold Petite Micropave ",
+    title:
+      "Exquisite Indian Diamonds - Handmade Bracelets & Stunning Necklaces Collection",
     price: 168,
     description:
-      "Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.",
+      "Satisfaction Guaranteed. Return or exchange any order within 30 days. Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.",
     category: "jewelery",
     image: herojewellery,
     rating: {
