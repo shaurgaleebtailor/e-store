@@ -2,7 +2,6 @@ import DesktopIntro from "./DesktopIntro.js";
 import MOWIntroSwiper from "./MOWIntroSwiper.js";
 import {useMOWChecker} from "../utilities/useMOWChecker.js";
 import { allProductsIntro } from "../static/Data";
-import "./DesktopIntro.scss";
 
 const AllProductsIntro = () => {
   // Desktop mode
