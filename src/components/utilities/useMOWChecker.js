@@ -13,7 +13,7 @@ export const useMOWChecker = () => {
       }
     };
     window.addEventListener("resize", sizeHandler);
-    return () => window.removeEventListener("resize");
+    return () => window.removeEventListener("resize",sizeHandler);
   }, []);
   return isMobile;
 };

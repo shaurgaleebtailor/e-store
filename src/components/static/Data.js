@@ -10,8 +10,8 @@ import herowomens from "../../assets/hero-womens.jpg";
 export const availableCategories = [
   "Electronics",
   "Jewellery",
-  "Mens Clothing",
-  "Womens Clothing",
+  "Mens-Clothing",
+  "Womens-Clothing",
 ];
 
 export const heroCarouselData = [

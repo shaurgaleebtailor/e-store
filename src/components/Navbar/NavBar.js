@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
+import { useNavigate } from "react-router-dom";
 import { useMOWChecker } from "../utilities/useMOWChecker";
 import { avoidBackgroundScrolling } from "../utilities/utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,6 +18,12 @@ const NavBar = () => {
       setDisplayDrawer(false);
     }
   }, [isMobile,displayDrawer]);
+
+  const navigator = useNavigate();
+  const navHandler = (routeTo)=>{
+    navigator(`${routeTo}`);
+  }
+
   const MowNav = () => {
     const openDrawerHandler = () => {
       setDisplayDrawer(true);
@@ -46,7 +53,9 @@ const NavBar = () => {
             </button>
             <div className="drawer-items">
               {availableCategories.map((itm, index) => (
-                <span key={index} onClick={closeDrawerHandler}>{itm}</span>
+                <span key={index} onClick={()=>{closeDrawerHandler()
+                  navHandler(itm.toLowerCase())
+                }}>{itm}</span>
               ))}
             </div>
           </div>
@@ -54,14 +63,18 @@ const NavBar = () => {
       </div>
     );
   };
+  const backToStore = ()=>{
+    // navigate back to store
+    navigator("/")
+  }
   const DesktopNav = () => {
     return (
       <ul className="nav-items">
         <li>
-          <img src={Logo} alt="store logo" />
+          <img src={Logo} alt="store logo" title="store" onClick={backToStore}/>
         </li>
         {availableCategories.map((itm, index) => (
-          <li key={index} className="nav-links">{itm}</li>
+          <li key={index} className="nav-links" onClick={()=>navHandler(itm.toLowerCase())}>{itm}</li>
         ))}
       </ul>
     );
