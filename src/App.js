@@ -17,19 +17,19 @@ const routerInstances = [
         element:<HomePage/>
       },
       {
-        path :"Electronics",
+        path :"electronics",
         element:<ElectronicsPage/>
       },
       {
-        path : "Jewellery",
+        path : "jewellery",
         element:<JewelleryPage/>
       },
       {
-        path:"Mens-clothing",
+        path:"mens-clothing",
         element: <MensPage/>
       },
       {
-        path:"Womens-clothing",
+        path:"womens-clothing",
         element: <WomensPage/>
       }
     ]
