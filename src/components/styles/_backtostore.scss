@@ -1,0 +1,19 @@
+@mixin backtostorebtn($clr, $hvrclr) {
+    
+  button {
+    padding: 3px 5px;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    font-size: 18px;
+    margin: 2px 3px;
+    //using button as a link
+    background-color: unset;
+    border: unset;
+    cursor: pointer;
+    color: $clr;
+    &:hover,
+    &:active {
+      color: $hvrclr;
+    }
+  }
+}

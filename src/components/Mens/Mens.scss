@@ -1,3 +1,5 @@
+@use '../styles/backtostore' as bts;
+
 .mens-category {
   h1 {
     font-weight: 200;
@@ -87,25 +89,13 @@
     margin: 1px 11%;
     display: flex;
     justify-content: start;
+   
+    //using button as a link
+   @include bts.backtostorebtn(rgb(218, 126, 6),burlywood);
 
-    button {
-      padding: 3px 5px;
-      text-decoration: underline;
-      text-decoration-thickness: 1px;
-      font-size: 18px;
-      margin: 2px 3px;
-      background-color: unset;
-      border: unset;
-      cursor: pointer;
-      color: rgb(218, 126, 6);
-      &:hover,
-      &:active {
-        color: burlywood;
-      }
-    }
-    @media (max-width: "768px") {
-      width: 90%;
-      margin: 1px 5%;
-    }
+   @media (max-width: "768px") {
+    width: 90%;
+    margin: 1px 5%;
+  }
   }
 }
