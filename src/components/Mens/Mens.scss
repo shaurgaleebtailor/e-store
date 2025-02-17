@@ -1,0 +1,111 @@
+.mens-category {
+  h1 {
+    font-weight: 200;
+    font-size: 2.5rem;
+    margin: 2% 22%;
+    color: rgb(237, 160, 59);
+    letter-spacing: 2px;
+    @media (max-width: "530px") {
+      font-size: 2rem;
+      margin: 3% 16%;
+    }
+  }
+
+  .mens-category-intro {
+    position: relative;
+
+    .mens-category-intro-img {
+      width: 80%;
+      height: 60%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin: 2% 10%;
+      transform: scale(0.95);
+      box-shadow: 2px 2px 5px rgb(33, 40, 47), -2px -2px 5px rgb(33, 40, 47);
+    }
+    .mens-category-intro-info {
+      position: absolute;
+      top: 38%;
+      width: 70%;
+      margin: 2% 15%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      h2 {
+        color: bisque;
+        font-style: italic;
+        font-weight: 300;
+        padding: 2px 3px;
+        margin: 2px 3px;
+        font-size: 2rem;
+      }
+      p {
+        padding: 3px 5px;
+        margin: 1px 5px;
+        font-size: 18px;
+        color: rgba(192, 178, 158, 0.853);
+        text-align: justify;
+      }
+      @media (min-width: "769px") and (max-width: "1100px") {
+        top: 30%;
+        p {
+          font-size: 16px;
+        }
+      }
+    }
+    //  mow
+    &.mow {
+      .mens-category-intro-img {
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 2% 5%;
+      }
+      .mens-category-intro-info {
+        position: relative;
+        width: 90%;
+        margin: 2% 5%;
+        @media (max-width: "530px") {
+          h2 {
+            font-size: 1.5rem;
+          }
+          p {
+            font-size: 16px;
+          }
+          p:nth-of-type(1) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  #back-to-store {
+    width: 78%;
+    margin: 1px 11%;
+    display: flex;
+    justify-content: start;
+
+    button {
+      padding: 3px 5px;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      font-size: 18px;
+      margin: 2px 3px;
+      background-color: unset;
+      border: unset;
+      cursor: pointer;
+      color: rgb(218, 126, 6);
+      &:hover,
+      &:active {
+        color: burlywood;
+      }
+    }
+    @media (max-width: "768px") {
+      width: 90%;
+      margin: 1px 5%;
+    }
+  }
+}
