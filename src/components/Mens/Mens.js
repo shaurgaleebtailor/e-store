@@ -10,8 +10,8 @@ const Mens = () => {
   const backToStore = () => {
     // navigating back to store and maintaining the scroll position(overiding the previous scroll retentation) at the top,
     // since React Router by default retains the scroll position(old scroll position) when navigating between pages.
-    window.scrollTo(0, 0);
     navigator("/");
+    setTimeout(() => window.scrollTo(0, 0), 10);
   };
 
   return (

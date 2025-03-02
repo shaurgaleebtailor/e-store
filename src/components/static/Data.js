@@ -78,6 +78,7 @@ export const allProductsIntro = [
     title: "Men's Fashion",
     description: "Trendy outfits & more",
     linkTitle: "See Details",
+    navlink: "mens-clothing",
   },
   {
     id: 2,
@@ -85,6 +86,7 @@ export const allProductsIntro = [
     title: "Women's Fashion",
     description: "Latest styles & trends",
     linkTitle: "See Details",
+    navlink: "womens-clothing",
   },
   {
     id: 3,
@@ -92,6 +94,7 @@ export const allProductsIntro = [
     title: "Electronics",
     description: "Smart gadgets & devices",
     linkTitle: "See Details",
+    navlink: "electronics",
   },
   {
     id: 4,
@@ -99,6 +102,7 @@ export const allProductsIntro = [
     title: "Jewellery",
     description: "Elegant & stylish pieces",
     linkTitle: "See Details",
+    navlink: "jewellery",
   },
 ];
 

@@ -1,33 +1,45 @@
 import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import "./DesktopIntro.scss";
 
 const DesktopIntro = ({ productData }) => {
   const [isVisible, SetIsVisible] = useState(false);
   const imgRef = useRef(null);
+
   useEffect(() => {
     let intrsecObsr = new IntersectionObserver(
       (entry) => {
-        if (entry[0].intersectionRatio >= 0.50) {
-            SetIsVisible(true);
+        if (entry[0].intersectionRatio >= 0.5) {
+          SetIsVisible(true);
         }
       },
-      { threshold: 0.50 }
+      { threshold: 0.5 }
     );
-    if (imgRef.current) {
-      intrsecObsr.observe(imgRef.current);
+    let imgRefCurrent = imgRef.current;
+    if (imgRefCurrent) {
+      intrsecObsr.observe(imgRefCurrent);
     }
     return () => {
-      if (imgRef.current) {
-        intrsecObsr.unobserve(imgRef.current);
+      if (imgRefCurrent) {
+        intrsecObsr.unobserve(imgRefCurrent);
       }
     };
   }, []);
-  const { title, id, imgSrc, description, linkTitle } = productData;
+  const navigate = useNavigate();
+  const takeToCategoryHandler = (routeTo) => {
+    // navigating back to store and maintaining the scroll position(overiding the previous scroll retentation) at the top,
+    // since React Router by default retains the scroll position(old scroll position) when navigating between pages.
+    navigate(`/${routeTo}`);
+    setTimeout(() => window.scrollTo(0, 0), 10);
+  };
+
+  const { title, id, imgSrc, description, linkTitle, navlink } = productData;
+
   let renderSection =
     !(id % 2) == 0 ? (
       <div className="products-intro-container">
         <article className="left-part">
-          <img src={imgSrc} ref={imgRef} alt={title+"logo"}/>
+          <img src={imgSrc} ref={imgRef} alt={title + "logo"} />
         </article>
         <section className="right-part">
           {isVisible && (
@@ -36,7 +48,9 @@ const DesktopIntro = ({ productData }) => {
                 <i>{title} </i>
               </h2>
               <p>{description}</p>
-              <a href="./ok.html">{linkTitle}</a>
+              <button onClick={() => takeToCategoryHandler(navlink)}>
+                {linkTitle}
+              </button>
             </div>
           )}
         </section>
@@ -50,12 +64,14 @@ const DesktopIntro = ({ productData }) => {
                 <i>{title} </i>
               </h2>
               <p>{description}</p>
-              <a href="./some-dummy-html-for-time-being.html">{linkTitle}</a>
+              <button onClick={() => takeToCategoryHandler(navlink)}>
+                {linkTitle}
+              </button>
             </div>
           )}
         </section>
         <article className="left-part">
-          <img src={imgSrc} ref={imgRef} alt={title+"logo"} />
+          <img src={imgSrc} ref={imgRef} alt={title + "logo"} />
         </article>
       </div>
     );

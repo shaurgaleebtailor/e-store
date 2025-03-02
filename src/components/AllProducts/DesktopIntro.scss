@@ -19,12 +19,11 @@
         transform: scale(1);
         transition: transform 1.5s;
       }
-      &:last-child{
+      &:last-child {
         @media (min-width: "769px") and (max-width: "819px") {
-            min-height: 12rem;
-          }
+          min-height: 12rem;
+        }
       }
-
     }
   }
   .right-part {
@@ -44,28 +43,31 @@
       font-weight: 300;
       font-size: 28px;
     }
-    a {
+    button {
       padding: 3px 5px 3px;
       margin: 2px 3px 2px;
       font-size: 24px;
       font-weight: 200;
       color: burlywood;
       text-decoration: none;
+      //using button as a link
+      background-color: unset;
+      border: unset;
+      cursor: pointer;
       &:hover {
         text-decoration: underline;
       }
     }
     @media (min-width: "769px") and (max-width: "1040px") {
-        h2{
-            font-size: 42px;
-        }
-        p{
-            font-size: 22px;
-        }
-        a{
-            font-size: 20px;
-        }
-        
+      h2 {
+        font-size: 42px;
+      }
+      p {
+        font-size: 22px;
+      }
+      button {
+        font-size: 20px;
+      }
     }
     @keyframes slowIntro {
       0% {

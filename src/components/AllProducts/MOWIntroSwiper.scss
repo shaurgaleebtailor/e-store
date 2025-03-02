@@ -43,33 +43,36 @@
       font-size: 18px;
       color: #000408;
     }
-    a {
+    button {
       padding: 2px 5px 2px;
       margin: 2px 3px 2px;
       font-size: 22px;
       color: rgb(185, 119, 6);
       text-decoration: underline;
       font-style: italic;
+      //using button as a link
+      background-color: unset;
+      border: unset;
+      cursor: pointer;
     }
   }
 }
 
-@media (min-width:376px) and 
-(max-width:767px) {
-  .custom-swiper{
-    .slide-container{
+@media (min-width: 376px) and (max-width: 767px) {
+  .custom-swiper {
+    .slide-container {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      h1{
+      h1 {
         margin-left: 0;
       }
-      .slide-info{
+      .slide-info {
         margin-left: 20%;
       }
     }
-     .swiper-pagination {
+    .swiper-pagination {
       bottom: 12px;
     }
   }
