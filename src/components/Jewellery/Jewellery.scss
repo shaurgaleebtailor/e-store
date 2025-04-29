@@ -1,0 +1,6 @@
+@use "../styles/backtostore" as bts;
+
+#back-to-store{
+    @include bts.backtostorebtn(rgb(218, 126, 6), burlywood);
+}
+
