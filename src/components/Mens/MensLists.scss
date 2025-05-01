@@ -1,0 +1,81 @@
+.lists-container {
+  .mens-list-container {
+    .display-itm {
+      border: 2px solid aliceblue;
+      border-radius: 12px;
+      background-color: rgba(27, 192, 192, 0.766);
+      box-shadow: 1px 1px 2px 2px rgba(9, 9, 9, 0.1),
+        -1px -1px 2px 2px rgba(9, 9, 9, 0.1);
+
+      width: 90%;
+      height: 395px;
+      margin-inline: 5%;
+      margin-block: 5%;
+      p {
+        font-size: 15px;
+        padding: 3px 4px;
+        min-height: 35px;
+        text-align: center;
+        margin: 12px 4px 3px 4px;
+        color: rgb(23, 10, 1);
+      }
+
+      img {
+        width: 60%;
+        margin-top: 7%;
+        margin-inline: 20%;
+        height: 250px;
+      }
+      .itm-info {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        span {
+          font-size: 17px;
+          padding: 3px 4px;
+        }
+        .buy-itm {
+          font-size: 16px;
+          padding: 3px 6px;
+
+          border: 1px solid white;
+          border-radius: 5px;
+
+          &:active {
+            background-color: rgb(17, 127, 17);
+          }
+        }
+      }
+      @media (min-width: "525px") and (max-width: "768px") {
+        width: 70%;
+        height: 380px;
+        margin-inline: 15%;
+        p {
+          min-height: unset;
+          margin-block: 10px;
+        }
+      }
+    }
+
+    @media (min-width: "769px") {
+      display: flex;
+      flex-wrap: wrap;
+      width: 98%;
+      margin-inline: 1%;
+      .display-itm {
+        width: 300px;
+        margin: 10px;
+        margin-left: 3%;
+      }
+    }
+  }
+}
+.outoff-stocks {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.loader{
+    color: aliceblue;
+    text-align: center;
+}

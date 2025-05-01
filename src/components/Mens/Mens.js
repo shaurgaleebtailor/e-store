@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 import { clsx as cn } from "clsx";
 import { useMOWChecker } from "../utilities/useMOWChecker.js";
+import MensLists from "./MensLists.js";
 import menscategoryintro from "../../assets/mens/mens-category-intro.webp";
 import "./Mens.scss";
 const Mens = () => {
@@ -45,6 +46,7 @@ const Mens = () => {
         <div id="back-to-store">
           <button onClick={backToStore}>&larr; Store</button>
         </div>
+        <MensLists />
       </div>
     </Fragment>
   );
