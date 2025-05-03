@@ -1,21 +1,26 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+// import {  useEffect } from "react";
+// import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { mc } from "../static/mens-category";
 import "./MensLists.scss";
 const MensLists = () => {
-  const [availableMensLists, setAvailableMensLists] = useState([]);
-  useEffect(() => {
-    (async () => {
-      try {
-        let data = await axios.get(
-          `https://fakestoreapi.com/products/category/men's%20clothing`
-        );
-        console.log("data", data.data);
-        setAvailableMensLists(data.data);
-      } catch (e) {
-        setAvailableMensLists([]);
-      }
-    })();
-  }, []);
+  const [availableMensLists, setAvailableMensLists] = useState([...mc]);
+  // useEffect(() => {
+    // (async () => {
+    //   try {
+    //     let data = await axios.get(
+    //       `https://fakestoreapi.com/products/category/men's%20clothing`
+    //     );
+    //     setAvailableMensLists(data.data);
+    //   } catch (e) {
+    //     setAvailableMensLists([]);
+    //   }
+    // })();
+
+  // }, []);
+  const navTo = useNavigate();
+
   let renderLists = availableMensLists.map((itm, indx) => {
     return (
       <div key={indx} className="display-itm">
@@ -23,7 +28,9 @@ const MensLists = () => {
         <p>{itm.title}</p>
         <div className="itm-info">
           <span>Price : {itm.price}rs</span>
-          <button className="buy-itm">Buy</button>
+          <button className="buy-itm" onClick={()=>{
+            navTo(`${indx+1}`)
+          }}>Buy</button>
         </div>
       </div>
     );

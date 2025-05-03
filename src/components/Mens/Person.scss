@@ -1,0 +1,109 @@
+@use "../styles/backtostore" as btn;
+
+.backbtn {
+  margin: 15px;
+  @include btn.backtostorebtn(rgb(218, 126, 6), burlywood);
+}
+.person-details {
+  .person-left {
+    width: 80%;
+    margin: 1% auto;
+    display: flex;
+    justify-content: center;
+    img {
+      width: 30rem;
+      height: 300px;
+    }
+  }
+  .person-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    h2 {
+      margin-block: 10px;
+      text-align: center;
+    }
+    p {
+      padding: 4px 8px;
+      text-align: justify;
+    }
+    .price-tag {
+      display: flex;
+      justify-content: space-between;
+      align-self: center;
+      margin-block: 12px;
+      color: seashell;
+    }
+    .ratings-count {
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+      margin-block: 2%;
+      gap: 20px;
+      span {
+        min-height: 22px;
+      }
+    }
+  }
+}
+.add-to-cart {
+  display: flex;
+  margin: 2%;
+  justify-content: space-evenly;
+  align-items: center;
+
+  .items-count {
+    background-color: rgba(183, 233, 222, 0.948);
+    border-radius: 10px;
+    .count {
+      padding: 4px 8px;
+      margin: 3px;
+      color: black;
+    }
+    button {
+      font-size: 18px;
+      padding: 3px 6px;
+      margin: 2px;
+      cursor: pointer;
+      background-color: unset;
+      border: unset;
+      // color: rgb(1, 43, 43);
+      color: rgb(12, 72, 82);
+    }
+    .minus-itm {
+      &:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+      }
+    }
+    .plus-itm {
+      &:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+      }
+    }
+  }
+  .add-to-cart-btn {
+    button {
+      color: whitesmoke;
+      background-color: midnightblue;
+      border-radius: 10px;
+      padding: 4px 12px;
+      margin: 3px 4px;
+      font-size: 17px;
+      border: 1px solid midnightblue;
+      cursor: pointer;
+      &:active {
+        opacity: 0.7;
+      }
+    }
+  }
+}
+.checkout-btn {
+  display: flex;
+  justify-content: end;
+  @include btn.backtostorebtn(rgb(218, 126, 6), burlywood);
+  padding: 3px 6px;
+  margin: 2%;
+}
