@@ -50,21 +50,21 @@ const Person = () => {
     contxt.cartDispatch({type:"add",payload:itmCount})
   }
 
-
+  const backPage = ()=>{
+    nav(-1);
+  }
 
   return (
     <section className="person-page">
      {cartRender}
       <div className="backbtn">
         <button
-          onClick={() => {
-            nav(-1);
-          }}
+          onClick={backPage}
         >
           &larr; back
         </button>
       </div>
-
+      <div className={cn({"desktop":!isMobile})}>
       {personRender}
       <div className="add-to-cart">
         <div
@@ -95,6 +95,7 @@ const Person = () => {
       </div>
       <div className="checkout-btn">
         <button>Checkout &rarr; </button>
+      </div>
       </div>
     </section>
   );
