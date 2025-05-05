@@ -1,7 +1,8 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
 import { useMOWChecker } from "../utilities/useMOWChecker";
+import { GlobalCntxt } from "../Context/GlobalCntxt";
 import { avoidBackgroundScrolling } from "../utilities/utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart, faBars } from "@fortawesome/free-solid-svg-icons";
@@ -18,7 +19,7 @@ const NavBar = () => {
       setDisplayDrawer(false);
     }
   }, [isMobile,displayDrawer]);
-
+  const cntx = useContext(GlobalCntxt);
   const navigator = useNavigate();
   const navHandler = (routeTo)=>{
     navigator(`${routeTo}`);
@@ -83,13 +84,14 @@ const NavBar = () => {
     <MowNavDrawer />,
     document.getElementById("drawer-mow")
   );
+  const cartCount = cntx.cartState.cartCount;
   return (
     <>
       <nav className="navbar">
         {isMobile ? <MowNav /> : <DesktopNav />}
         <section className="cart">
           <FontAwesomeIcon icon={faShoppingCart} size="2x" id="cart-logo" />
-          <span id="cart-count">123</span>
+          <span id="cart-count">{cartCount}</span>
         </section>
       </nav>
       {isMobile && navmowdrawerPortal}

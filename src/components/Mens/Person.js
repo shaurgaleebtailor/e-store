@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useMOWChecker } from "../utilities/useMOWChecker";
+import { GlobalCntxt } from "../Context/GlobalCntxt";
 import { mc } from "../static/mens-category";
 import { clsx as cn } from "clsx";
 import "./Person.scss";
@@ -8,6 +9,7 @@ import "./Person.scss";
 const Person = () => {
   const [itmCount, setItmCount] = useState(1);
   const isMobile = useMOWChecker();
+  const contxt = useContext(GlobalCntxt);
   const personId = useParams().id;
   const nav = useNavigate();
   // get data from API using each person idc-- todo
@@ -41,8 +43,12 @@ const Person = () => {
   };
 
   const cartRender = <div className="cart-details">
-    <span>Items in the Cart </span>
+    <span>Items in the Cart  <span>{contxt.cartState.cartCount}</span> </span>
   </div>
+
+  const addToCartHandler = ()=>{
+    contxt.cartDispatch({type:"add",payload:itmCount})
+  }
 
 
 
@@ -84,7 +90,7 @@ const Person = () => {
           </button>
         </div>
         <div className="add-to-cart-btn">
-          <button>Add</button>
+          <button onClick={addToCartHandler} >Add</button>
         </div>
       </div>
       <div className="checkout-btn">

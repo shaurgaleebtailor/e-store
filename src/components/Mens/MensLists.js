@@ -30,6 +30,7 @@ const MensLists = () => {
           <span>Price : {itm.price}rs</span>
           <button className="buy-itm" onClick={()=>{
             navTo(`${indx+1}`)
+            window.scrollTo(0,0);
           }}>Buy</button>
         </div>
       </div>

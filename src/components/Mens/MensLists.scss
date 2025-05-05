@@ -40,9 +40,13 @@
 
           border: 1px solid white;
           border-radius: 5px;
+          cursor: pointer;
+          &:hover{
+            background-color: green;
+          }
 
           &:active {
-            background-color: rgb(17, 127, 17);
+            background-color: rgb(47, 225, 47);
           }
         }
       }
