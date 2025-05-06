@@ -82,7 +82,7 @@ const NavBar = () => {
   };
   const navmowdrawerPortal = createPortal(
     <MowNavDrawer />,
-    document.getElementById("drawer-mow")
+    document.getElementById("nav-drawer-mow")
   );
 
   const itmsInCart = cntx.cartState.reduce((accumulator,currItm)=>{
