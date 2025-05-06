@@ -41,13 +41,19 @@ const Person = () => {
   const minusByOneHandler = () => {
     setItmCount((itm) => itm - 1);
   };
+  const itmsInCart = contxt.cartState.reduce((accumulator,currItm)=>{
+    return accumulator+currItm.totalCount;
+  },0)
 
   const cartRender = <div className="cart-details">
-    <span>Items in the Cart  <span>{contxt.cartState.cartCount}</span> </span>
+    <span>Items in the Cart 
+       <span>{itmsInCart}</span> 
+    </span>
   </div>
 
   const addToCartHandler = ()=>{
-    contxt.cartDispatch({type:"add",payload:itmCount})
+    const {id,price,title,image} = personData[0]
+    contxt.cartDispatch({type:"add",payload:{totalCount:itmCount,itmId:id,itmTitle:title,itmPrice:price*itmCount,itmImg:image}})
   }
 
   const backPage = ()=>{

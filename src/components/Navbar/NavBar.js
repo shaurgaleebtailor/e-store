@@ -84,14 +84,18 @@ const NavBar = () => {
     <MowNavDrawer />,
     document.getElementById("drawer-mow")
   );
-  const cartCount = cntx.cartState.cartCount;
+
+  const itmsInCart = cntx.cartState.reduce((accumulator,currItm)=>{
+    return accumulator+currItm.totalCount;
+  },0)
+  
   return (
     <>
       <nav className="navbar">
         {isMobile ? <MowNav /> : <DesktopNav />}
         <section className="cart">
           <FontAwesomeIcon icon={faShoppingCart} size="2x" id="cart-logo" />
-          <span id="cart-count">{cartCount}</span>
+          <span id="cart-count">{itmsInCart}</span>
         </section>
       </nav>
       {isMobile && navmowdrawerPortal}
