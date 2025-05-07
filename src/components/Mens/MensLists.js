@@ -27,7 +27,7 @@ const MensLists = () => {
         <img src={itm.image} alt={itm.title} />
         <p>{itm.title}</p>
         <div className="itm-info">
-          <span>Price : {itm.price}rs</span>
+          <span>Price : &#8377; {itm.price}</span>
           <button className="buy-itm" onClick={()=>{
             navTo(`${indx+1}`)
             window.scrollTo(0,0);

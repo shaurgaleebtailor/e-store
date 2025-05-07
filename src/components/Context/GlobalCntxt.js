@@ -31,9 +31,12 @@ const ContxtProvider = ({ children }) => {
         window.localStorage.setItem("cartDetails", JSON.stringify(tempState));
 
         return [...tempState];
-      // case 'remove':
-      // window.localStorage.setItem("cartCount",state.cartCount-action.payload);
-      // return {...state,cartCount:state.cartCount-action.payload};
+      case 'remove':
+    
+      let tempState2 = [...state];
+      let updatedState = tempState2.filter((itm)=>itm.itmId!=action.payload);
+      window.localStorage.setItem("cartDetails", JSON.stringify(updatedState));
+      return [...updatedState];
       case "remember":
         return [...action.payload];
       default:

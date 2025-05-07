@@ -1,4 +1,4 @@
-import { useState, useContext ,useRef} from "react";
+import { useState, useContext, useRef } from "react";
 import { createPortal } from "react-dom";
 import { useParams, useNavigate } from "react-router-dom";
 import { useMOWChecker } from "../utilities/useMOWChecker";
@@ -47,29 +47,96 @@ const Person = () => {
   const itmsInCart = contxt.cartState.reduce((accumulator, currItm) => {
     return accumulator + currItm.totalCount;
   }, 0);
-  const {isCartOverlayShown,setIsCartOverlayShown} = contxt.cartModal;
+  const { isCartOverlayShown, setIsCartOverlayShown } = contxt.cartModal;
   // avoid background scrolling in both mow & desktop
-  avoidBackgroundScrollingInBoth(isCartOverlayShown)
+  avoidBackgroundScrollingInBoth(isCartOverlayShown);
 
-  const CartModal = ()=>{
-   
-       return <div className="modal" style={{ top : `${scrlY_fromHTML.current}px`}}> 
-        <h2>Modal title</h2>
-        <main>Data</main>
-        <button onClick={()=>{
-          setIsCartOverlayShown(false)
-        }}>close</button>
+  const CartModal = () => {
+    const cartDetailsInModal = contxt.cartState;
 
-       </div>
-  }
-  const cartModalRender = createPortal(<CartModal/>,document.getElementById("cart-modal"));
+    const removeItmHandler = (itmId) => {
+      contxt.cartDispatch({ type: "remove", payload: itmId });
+    };
+    const isCartEmpty = cartDetailsInModal.length<1;
+    const netTotal = contxt.cartState.reduce((accumulator, currItm) => {
+      return accumulator + currItm.itmPrice;
+    }, 0);
+    return (
+      <div className="modal" style={{ top: `${scrlY_fromHTML.current}px` }}>
+        <div className="container">
+          <h2>
+            <i>Cart Details</i>
+          </h2>
+          {cartDetailsInModal.map((itm, indx) => {
+            console.log(itm);
+            return (
+              <div key={indx} className="itm-details">
+                <div className="top-section">
+                  <div>
+                    <img src={itm.itmImg} />
+                  </div>
+                  <div>
+                    <span>{itm.itmTitle}</span>
+                  </div>
+                </div>
+                <div className="mid-section">
+                  <section className="price-itms">
+                    <div className="itms">
+                      <span>Items : {itm.totalCount}</span>
+                    </div>
+                    <div className="price">
+                      <span>
+                        Total Price : <em>&#8377; {itm.itmPrice}</em>{" "}
+                      </span>
+                    </div>
+                  </section>
+                  <section className="add-remove-section">
+                    <button onClick={() => removeItmHandler(itm.itmId)}>
+                      remove
+                    </button>
+                  </section>
+                </div>
+                <div className="lower-section">
 
+                </div>
+
+                <hr />
+              </div>
+            );
+          })}
+         {isCartEmpty && <div className="empty-cart">
+              <button onClick={()=>setIsCartOverlayShown(false )}>Add Items</button>
+          </div>}
+          {!isCartEmpty && <div className="net-total">
+            <span >Net Total : &#8377;  {netTotal}</span>
+            </div>}
+          
+          <button
+            className="cart-close-btn"
+            onClick={() => {
+              setIsCartOverlayShown(false);
+            }}
+          >
+            X
+          </button>
+        </div>
+      </div>
+    );
+  };
+  const cartModalRender = createPortal(
+    <CartModal />,
+    document.getElementById("cart-modal")
+  );
 
   const cartRender = (
-    <div className="cart-details" onClick={()=>{
-      setIsCartOverlayShown(true);
-      scrlY_fromHTML.current = document.documentElement.scrollTop;
-    }} title="cart details">
+    <div
+      className="cart-details"
+      onClick={() => {
+        setIsCartOverlayShown(true);
+        scrlY_fromHTML.current = document.documentElement.scrollTop;
+      }}
+      title="cart details"
+    >
       <span className="cart-text">
         Items in the Cart
         <span className="cart-count">{itmsInCart}</span>
