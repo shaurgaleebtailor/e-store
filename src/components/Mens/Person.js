@@ -68,7 +68,6 @@ const Person = () => {
             <i>Cart Details</i>
           </h2>
           {cartDetailsInModal.map((itm, indx) => {
-            console.log(itm);
             return (
               <div key={indx} className="itm-details">
                 <div className="top-section">
