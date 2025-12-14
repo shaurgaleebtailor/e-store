@@ -181,6 +181,7 @@
       margin: 2px;
 
       .top-section{
+        margin-left: 8%;
         display: flex;
         gap: 25;
         span{
@@ -196,6 +197,7 @@
       }
 
       .mid-section{
+        margin-bottom: 5px;
         display: flex;
         align-items: center;
         justify-content: space-around;
@@ -209,6 +211,12 @@
             background-color: unset;
             border: unset;
             text-decoration: underline;
+            cursor: pointer;
+          }
+
+          .remove-btn:hover{
+            color: #f3f2ed;
+            
           }
         }
       }
@@ -242,6 +250,29 @@
       font-size: 20px;
       padding: 3px 6px;
       cursor: pointer;
+    }
+    .net-total{
+
+      margin-left: 5%;
+      margin-top: 2.5%;
+      em{
+        color: rgb(240, 192, 130);
+      }
+    }
+
+    .itm-details.desktop{
+      .top-section{
+        margin-left: 10%;
+
+        .itm-title{
+          color: rgb(240, 192, 130);
+        }
+      }
+      .mid-section{
+        margin-bottom: 10px;
+      
+      }
+
     }
   }
 }

@@ -1,5 +1,6 @@
 import { Fragment, lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import './App.scss'
 
 const MainPage = lazy(() => import("./components/MainPage/MainPage.js"));
 const HomePage = lazy(() => import("./components/Home/HomePage.js"));

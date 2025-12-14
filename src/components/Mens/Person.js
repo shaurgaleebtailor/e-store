@@ -73,7 +73,7 @@ const Person = () => {
     };
     const isCartEmpty = cartDetailsInModal.length < 1;
     const netTotal = contxt.cartState.reduce((accumulator, currItm) => {
-      return accumulator + currItm.itmPrice;
+      return Number((accumulator + currItm.itmPrice).toFixed(2));
     }, 0);
     return (
       <div className="modal" style={{ top: `${scrlY_fromHTML.current}px` }}>
@@ -83,12 +83,15 @@ const Person = () => {
           </h2>
           {cartDetailsInModal.map((itm, indx) => {
             return (
-              <div key={indx} className="itm-details">
+              <div
+                key={indx}
+                className={cn("itm-details", { desktop: !isMobile })}
+              >
                 <div className="top-section">
                   <div>
                     <img src={itm.itmImg} />
                   </div>
-                  <div>
+                  <div className="itm-title">
                     <span>{itm.itmTitle}</span>
                   </div>
                 </div>
@@ -99,12 +102,15 @@ const Person = () => {
                     </div>
                     <div className="price">
                       <span>
-                        Total Price : <em>&#8377; {itm.itmPrice}</em>{" "}
+                        Total Price : <em>&#8377; {itm.itmPrice.toFixed(2)}</em>{" "}
                       </span>
                     </div>
                   </section>
                   <section className="add-remove-section">
-                    <button onClick={() => removeItmHandler(itm.itmId)}>
+                    <button
+                      className="remove-btn"
+                      onClick={() => removeItmHandler(itm.itmId)}
+                    >
                       remove
                     </button>
                   </section>
@@ -123,9 +129,16 @@ const Person = () => {
             </div>
           )}
           {!isCartEmpty && (
-            <div className="net-total">
-              <span>Net Total : &#8377; {netTotal}</span>
-            </div>
+            <>
+              <div className="net-total">
+                <span>
+                  Net Total :<em> &#8377; {netTotal}</em>
+                </span>
+              </div>
+              <div className="checkout-btn">
+                <button>Checkout &rarr; </button>
+              </div>
+            </>
           )}
 
           <button
@@ -187,6 +200,9 @@ const Person = () => {
         <button onClick={backPage}>&larr; back</button>
       </div>
       <div className={cn({ desktop: !isMobile })}>
+        {personData.length<1 && <h2><center>
+          <i>Loading...</i>
+          </center></h2> }
         {personRender}
         {personData.length > 0 && (
           <>
