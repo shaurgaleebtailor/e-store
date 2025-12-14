@@ -1,24 +1,24 @@
 import { useState, useEffect } from "react";
-// import {  useEffect } from "react";
-// import axios from "axios";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { mc } from "../static/mens-category";
 import "./MensLists.scss";
 const MensLists = () => {
-  const [availableMensLists, setAvailableMensLists] = useState([...mc]);
-  // useEffect(() => {
-    // (async () => {
-    //   try {
-    //     let data = await axios.get(
-    //       `https://fakestoreapi.com/products/category/men's%20clothing`
-    //     );
-    //     setAvailableMensLists(data.data);
-    //   } catch (e) {
-    //     setAvailableMensLists([]);
-    //   }
-    // })();
+  const [availableMensLists, setAvailableMensLists] = useState([]);
+  useEffect(() => {
+    (async () => {
+      try {
+        let data = await axios.get(
+          `https://fakestoreapi.com/products/category/men's%20clothing`
+        );
+        console.log("data.data",data.data)
 
-  // }, []);
+        setAvailableMensLists(data.data);
+      } catch (e) {
+        setAvailableMensLists([]);
+      }
+    })();
+
+  }, []);
   const navTo = useNavigate();
 
   let renderLists = availableMensLists.map((itm, indx) => {

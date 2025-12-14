@@ -1,12 +1,12 @@
-import { useState, useContext, useRef } from "react";
+import { useState, useContext, useRef, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { useParams, useNavigate } from "react-router-dom";
 import { useMOWChecker } from "../utilities/useMOWChecker";
 import { GlobalCntxt } from "../Context/GlobalCntxt";
 import { avoidBackgroundScrollingInBoth } from "../utilities/utils";
-import { mc } from "../static/mens-category";
 import { clsx as cn } from "clsx";
 import "./Person.scss";
+import axios from "axios";
 
 const Person = () => {
   const [itmCount, setItmCount] = useState(1);
@@ -15,9 +15,23 @@ const Person = () => {
   const personId = useParams().id;
   const nav = useNavigate();
   const scrlY_fromHTML = useRef();
+
+  const [personData, setPersonData] = useState([]);
+
   // get data from API using each person idc-- todo
-  const personData = mc.filter((itm) => itm.id == personId);
-  const personRender = personData.map((itm, index) => {
+  useEffect(() => {
+    (async () => {
+      try {
+        let res = await axios.get(
+          `https://fakestoreapi.com/products/${personId}`
+        );
+        setPersonData([res.data]);
+      } catch (e) {
+        setPersonData([]);
+      }
+    })();
+  }, []);
+  const personRender = personData?.map((itm, index) => {
     return (
       <div className="person-details" key={index}>
         <section className="person-left">
@@ -57,7 +71,7 @@ const Person = () => {
     const removeItmHandler = (itmId) => {
       contxt.cartDispatch({ type: "remove", payload: itmId });
     };
-    const isCartEmpty = cartDetailsInModal.length<1;
+    const isCartEmpty = cartDetailsInModal.length < 1;
     const netTotal = contxt.cartState.reduce((accumulator, currItm) => {
       return accumulator + currItm.itmPrice;
     }, 0);
@@ -95,21 +109,25 @@ const Person = () => {
                     </button>
                   </section>
                 </div>
-                <div className="lower-section">
-
-                </div>
+                <div className="lower-section"></div>
 
                 <hr />
               </div>
             );
           })}
-         {isCartEmpty && <div className="empty-cart">
-              <button onClick={()=>setIsCartOverlayShown(false )}>Add Items</button>
-          </div>}
-          {!isCartEmpty && <div className="net-total">
-            <span >Net Total : &#8377;  {netTotal}</span>
-            </div>}
-          
+          {isCartEmpty && (
+            <div className="empty-cart">
+              <button onClick={() => setIsCartOverlayShown(false)}>
+                Add Items
+              </button>
+            </div>
+          )}
+          {!isCartEmpty && (
+            <div className="net-total">
+              <span>Net Total : &#8377; {netTotal}</span>
+            </div>
+          )}
+
           <button
             className="cart-close-btn"
             onClick={() => {
@@ -170,36 +188,40 @@ const Person = () => {
       </div>
       <div className={cn({ desktop: !isMobile })}>
         {personRender}
-        <div className="add-to-cart">
-          <div
-            className="items-count"
-            title="min 1 to 9 units only we can add as of now"
-          >
-            <button
-              className={cn("minus-itm")}
-              onClick={minusByOneHandler}
-              disabled={itmCount < 2}
-            >
-              {" "}
-              -{" "}
-            </button>
-            <span className="count">{itmCount}</span>
-            <button
-              className={cn("plus-itm")}
-              onClick={plusByOneHandler}
-              disabled={itmCount > 8}
-            >
-              {" "}
-              +{" "}
-            </button>
-          </div>
-          <div className="add-to-cart-btn">
-            <button onClick={addToCartHandler}>Add</button>
-          </div>
-        </div>
-        <div className="checkout-btn">
-          <button>Checkout &rarr; </button>
-        </div>
+        {personData.length > 0 && (
+          <>
+            <div className="add-to-cart">
+              <div
+                className="items-count"
+                title="min 1 to 9 units only we can add as of now"
+              >
+                <button
+                  className={cn("minus-itm")}
+                  onClick={minusByOneHandler}
+                  disabled={itmCount < 2}
+                >
+                  {" "}
+                  -{" "}
+                </button>
+                <span className="count">{itmCount}</span>
+                <button
+                  className={cn("plus-itm")}
+                  onClick={plusByOneHandler}
+                  disabled={itmCount > 8}
+                >
+                  {" "}
+                  +{" "}
+                </button>
+              </div>
+              <div className="add-to-cart-btn">
+                <button onClick={addToCartHandler}>Add</button>
+              </div>
+            </div>
+            <div className="checkout-btn">
+              <button>Checkout &rarr; </button>
+            </div>
+          </>
+        )}
       </div>
     </section>
   );
